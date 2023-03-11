@@ -5,7 +5,9 @@ const MainContainer = () => {
     return <div>
         <div className="container w-75">
         <nav className="navbar navbar-expand-md navbar-light bg-light">
-            <a className="navbar-brand" href="/promotions" style={{fontWeight: "bold"}}>Local Targeting System</a>
+            <a className="navbar-brand" href="/promotions" style={{fontWeight: "bold"}}>
+                <img src="https://www.petofy.com/images/logo.png" width={110} height={50}/>
+            </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

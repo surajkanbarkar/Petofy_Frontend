@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const CustomerHomeComponent = () => {
+    const user = localStorage.getItem("user");
+    const userName = JSON.parse(user).firstName;
     return <div>
         <nav className="navbar navbar-expand-md navbar-light bg-light">
             <a className="navbar-brand" href="/promotions" style={{fontWeight: "bold"}}>
@@ -23,6 +25,7 @@ const CustomerHomeComponent = () => {
                     </li>
                 </ul>
             </div>
+            Welcome {userName}
         </nav>
     </div>
 }

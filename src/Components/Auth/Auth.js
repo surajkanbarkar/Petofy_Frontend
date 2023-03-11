@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
+import StoreService from "../../Services/StoreService";
 import MainContainer from "./MainContainer";
 
 const Auth = () => {
@@ -10,6 +11,17 @@ const Auth = () => {
     const [alertSeverity, setAlertSeverity] = useState(null);
     const [open, setOpen] = React.useState(false);
     const navigate = useNavigate()
+
+    function getStoreProfile(userId){
+        StoreService.getStoreProfile(userId)
+        .then(response => {
+            let result = response.data;
+            if (result.status === "success"){
+                localStorage.setItem("storeId", result.data.storeId)
+                
+            }
+        })
+    }
 
     const onSubmit = (formState)=>{
         AuthService.loginService(formState)
@@ -19,9 +31,15 @@ const Auth = () => {
                 setAlert("Authentication successful")
                 setAlertSeverity("success")
                 setOpen(true);
+                localStorage.setItem("user", JSON.stringify(result.data));
+                getStoreProfile(result.data.userId);
                 setTimeout(function(){
-                    console.log("Authentication successful")
-                    navigate("/customer/petofy_home");
+                    if (result.data.userRole === "CUSTOMER")
+                    navigate("/customer/petofy_home")
+                else if (result.data.userRole === "GOVUSER")
+                    navigate("/gov/petofy_home")
+                else if (result.data.userRole === "STOREOWNER")
+                    navigate("/store/petofy_home")
                 }.bind(this), 1000)
             }else{
                 setAlert("Authentication failed")

@@ -1,13 +1,14 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CustomerHomeComponent from './CustomerHomeComponent';
+import GovHomeComponent from './GovHomeComponent';
 
-const CustomerHome = () => {
-    
+const GovHome = () => {
+
+
 
     return <div>
-            <CustomerHomeComponent />
+            <GovHomeComponent />
             <div className="" id="navbarNav">
                 <ul className="nav justify-content-end">
                     <li className="nav-item">
@@ -93,4 +94,4 @@ const CustomerHome = () => {
     </div>
 }
 
-export default CustomerHome;
+export default GovHome;

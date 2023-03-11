@@ -14,6 +14,16 @@ class AuthService{
         const FORGOTPASS_URL = URL + "/auth/forgotpassword";
         return axios.put(FORGOTPASS_URL, formData);
     }
+    updateUserProfileService(formData){
+        debugger
+        const UPDATE_PROFILE_URL = URL + "/auth/update_profile";
+        return axios.put(UPDATE_PROFILE_URL, formData, {headers: {"Content-Type": "application/json"}})
+    }
+    getUserProfile(userId){
+
+        const USER_PROFILE_URL = URL + "/auth/get_profile/"+userId;
+        return axios.get(USER_PROFILE_URL);
+    }
 }
 
 export default new AuthService;

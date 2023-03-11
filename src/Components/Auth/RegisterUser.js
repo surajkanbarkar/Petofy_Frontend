@@ -1,6 +1,7 @@
 import { Alert, Snackbar } from "@mui/material";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import MainContainer from "./MainContainer";
 
@@ -8,6 +9,7 @@ const RegisterUser = () => {
     const [alert, setAlert] = useState(null);
     const [alertSeverity, setAlertSeverity] = useState(null);
     const [open, setOpen] = React.useState(false);
+    const navigate = useNavigate();
 
     const onSubmit = (formState)=>{
         const data = new FormData();
@@ -27,9 +29,7 @@ const RegisterUser = () => {
                 setAlert(result.message)
                 setAlertSeverity("success")
                 setOpen(true);
-                setTimeout(function(){
-                    alert("yoyo");
-                }.bind(this), 3000)
+                navigate("/login");
             }else{
                 setAlert(result.message)
                 setAlertSeverity("error")
@@ -60,7 +60,7 @@ const RegisterUser = () => {
                             <input {...register('file', { required: true })} className='form-control mb-3' type={'file'} accept={'image/*'} placeholder='Upload file'/>
                             {/* <input {...register('userRole', { required: true })} className='form-control mb-3' type={'text'} placeholder='Select user role'/> */}
                             <select className="form-control mb-3" {...register('userRole', {required: true})} >
-                                <option value="">Select Gender</option>
+                                <option value="">Select role</option>
                                 <option value="CUSTOMER">Customer</option>
                                 <option value="GOVUSER">Government user</option>
                                 <option value="STOREOWNER">Store owner</option>

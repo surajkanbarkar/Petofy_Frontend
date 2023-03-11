@@ -1,6 +1,7 @@
 import { Alert, Snackbar } from "@mui/material";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import AuthService from "../../Services/AuthService";
 import MainContainer from "./MainContainer";
 
@@ -8,9 +9,9 @@ const ForgotPassword = () => {
     const [alert, setAlert] = useState(null);
     const [alertSeverity, setAlertSeverity] = useState(null);
     const [open, setOpen] = React.useState(false);
+    const navigate = useNavigate();
 
     const onSubmit = (formState)=>{
-        debugger
         const data = new FormData();
         data.append("emailId", formState.emailId)
         data.append("password", formState.password)
@@ -22,6 +23,10 @@ const ForgotPassword = () => {
                 setAlert(result.message)
                 setAlertSeverity("success")
                 setOpen(true);
+                setTimeout(function(){
+                    navigate("/login");
+                }.bind(this), 1000)
+                
             }else{
                 setAlert(result.message)
                 setAlertSeverity("error")
