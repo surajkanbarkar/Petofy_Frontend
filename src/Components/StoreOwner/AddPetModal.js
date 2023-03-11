@@ -64,11 +64,11 @@ const AddPetModal = ({show, handleClose, userId, storeId})=>{
             </Modal.Header>
             <Modal.Body>
             <Snackbar open={open} autoHideDuration={1000} onClose={() => setOpen(false)}>
-                    <Alert severity={alertSeverity} sx={{ width: '100%' }}>
-                        {alert}
-                    </Alert>
-                </Snackbar>
-            <input type="text" className="form-control" hidden name="userId" id="userId"  required/>
+                <Alert severity={alertSeverity} sx={{ width: '100%' }}>
+                    {alert}
+                </Alert>
+            </Snackbar>
+            <input type="text" className="form-control" hidden name="userId" id="userId" />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row p-2">
                     <input {...register('petOrigin', { required: true })} type={'text'} className="form-control" placeholder="Pet origin"/>
@@ -83,7 +83,7 @@ const AddPetModal = ({show, handleClose, userId, storeId})=>{
                     <input {...register('petHeight', { required: true})} type={'text'} className="form-control" placeholder="Pet height" />
                 </div>
                 <div className="row p-2">
-                    <input {...register('petWeight', { required: true})} type={'text'} className="form-control" placeholder="Pet weight"/>
+                    <input {...register('petWeight', { required: true})} type={'text'} className="form-control" placeholder="Pet weight" />
                 </div>
                 <div className="row p-2">
                     <input {...register('petLifespan', { required: true})} type={'text'} className="form-control" placeholder="Pet lifespan"/>
@@ -93,7 +93,7 @@ const AddPetModal = ({show, handleClose, userId, storeId})=>{
                 </div>
                 <div className="row p-2">
                     {/* <input {...register('petApartmentFriendly', { required: true, validate: handleDobValidation})} type={'text'} className="form-control" placeholder="Pet apartment friendly"/> */}
-                    <select className="form-control" {...register('petApartmentFriendly', {required: true})}>
+                    <select className="form-control" {...register('petApartmentFriendly', {required: true})} >
                         <option value="">Select friendliness</option>
                         <option value="highly">Highly</option>
                         <option value="medium">Medium</option>
@@ -101,10 +101,10 @@ const AddPetModal = ({show, handleClose, userId, storeId})=>{
                     </select>
                 </div>
                 <div className="row p-2">
-                    <input {...register('petPrice', { required: true})} type={'number'} maxLength={7} minLength={4} className="form-control" placeholder="Pet price"/>
+                    <input {...register('petPrice', { required: true})} type={'number'} maxLength={7} minLength={4} className="form-control" placeholder="Pet price" />
                 </div>
                 <div className="row p-2">
-                    <input {...register('petQuantity', { required: true})} type={'number'} maxLength={3} minLength={3} className="form-control" placeholder="Pet quantity"/>
+                    <input {...register('petQuantity', { required: true})} type={'number'} maxLength={3} minLength={3} className="form-control" placeholder="Pet quantity" />
                 </div>
                 <div className="row p-2">
                 <input {...register('file', { required: true })} className='form-control mb-3' type={'file'} accept={'image/*'} placeholder='Upload pet image'/>

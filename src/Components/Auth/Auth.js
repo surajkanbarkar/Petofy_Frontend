@@ -34,13 +34,17 @@ const Auth = () => {
                 localStorage.setItem("user", JSON.stringify(result.data));
                 getStoreProfile(result.data.userId);
                 setTimeout(function(){
-                    if (result.data.userRole === "CUSTOMER")
-                    navigate("/customer/petofy_home")
-                else if (result.data.userRole === "GOVUSER")
-                    navigate("/gov/petofy_home")
-                else if (result.data.userRole === "STOREOWNER")
-                    navigate("/store/petofy_home")
-                }.bind(this), 1000)
+                    if (result.data.userRole === "CUSTOMER"){
+                        navigate("/customer/petofy_home")
+                    }                    
+                    else if (result.data.userRole === "GOVUSER")
+                    {
+                        navigate("/gov/petofy_home")
+                    }
+                    else if (result.data.userRole === "STOREOWNER"){
+                        navigate("/store/petofy_home")
+                    }
+                    }.bind(this), 1000)
             }else{
                 setAlert("Authentication failed")
                 setAlertSeverity("error")

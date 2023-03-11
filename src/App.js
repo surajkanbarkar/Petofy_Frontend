@@ -9,6 +9,8 @@ import CustomerHome from './Components/Customer/CustomerHome';
 import GovHome from './Components/Gov/GovHome';
 import StoreHome from './Components/StoreOwner/StoreHome';
 import Profile from './Components/StoreOwner/Profile';
+import CustomerOrdersTable from './Components/Customer/CustomerOrdersTable';
+import UserProfileCustomer from './Components/Customer/UserProfileCustomer';
 
 function App() {
   return (
@@ -19,9 +21,11 @@ function App() {
             <Route exact path='/' element={<Auth />}></Route>
             <Route exact path='/login' element={<Auth />}></Route>
             <Route exact path='/register' element={<RegisterUser />}></Route>
-            <Route exact path='/profile' element={<Profile />}></Route>
+            <Route exact path='/store/profile' element={<Profile />}></Route>
             <Route exact path='/forgotpassword' element={<ForgotPassword />}></Route>
             <Route exact path='/customer/petofy_home' element={<CustomerHome />}></Route>
+            <Route exact path='/customer/orders' element={<CustomerOrdersTable />}></Route>
+            <Route exact path='/customer/profile' element={<UserProfileCustomer />}></Route>
             <Route exact path='/gov/petofy_home' element={<GovHome />}></Route>
             <Route exact path='/store/petofy_home' element={<StoreHome />}></Route>
           </Routes>

@@ -1,10 +1,11 @@
 import { Alert, Snackbar } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import PetOrderService from "../../Services/PetOrderService";
 import PetService from "../../Services/PetService";
-import UpdatePetModal from "./UpdatePetModal";
 
 const PetViewCard = ({modalInfo}) => {
     console.log(modalInfo)
+    const user = JSON.parse(localStorage.getItem("user"));
     const [updateCrdShow, setUpdateCrdShow] = useState(false)
     const [anchor, setAnchor] = useState(false);
     const [alert, setAlert] = useState(null);
@@ -25,23 +26,19 @@ const PetViewCard = ({modalInfo}) => {
             console.log(result)
         })
     }
-    const rowEvent =(identifier)=>{
-        if (identifier === "editPetModal"){
-            setUpdateCrdShow(true);
+
+    const buyPet = () =>{
+        var formData = {
+            "orderStatus": true,
+            "petsId": modalInfo.petsId
         }
-    }
-    const deletePetRecord = (petId, storeId) =>{
-        console.log(petId, storeId);
-        PetService.deletePet(storeId, petId)
-        .then(response=>{
+        PetOrderService.placeOrder(user.userId, formData)
+        .then(response =>{
             let result = response.data;
-            console.log(result)
-            if (result.status === "success"){
-                console.log(result.data)
+            if (result.status === 'success'){
                 setAlert(result.message)
                 setAlertSeverity("success")
                 setOpen(true);
-                // setStore(result.data)
             }else{
                 setAlert(result.message)
                 setAlertSeverity("error")
@@ -49,13 +46,19 @@ const PetViewCard = ({modalInfo}) => {
             }
         })
     }
+
+    const rowEvent =(identifier)=>{
+        if (identifier === "buyPet"){
+            buyPet();
+        }
+    }
+    
     return <div>
         <Snackbar open={open} autoHideDuration={1000} onClose={() => setOpen(false)}>
-                    <Alert severity={alertSeverity} sx={{ width: '100%' }}>
-                        {alert}
-                    </Alert>
-                </Snackbar>
-        {updateCrdShow === true ? <UpdatePetModal petsId={modalInfo.petsId}/>: 
+            <Alert severity={alertSeverity} sx={{ width: '100%' }}>
+                {alert}
+            </Alert>
+        </Snackbar>
         <div className="card" style={{width: '25rem', marginTop: '10px'}}>
         <img className="card-img-top" src={img} id="img" alt="Card image cap" />
         <div className="card-body" style={{textAlign: 'left'}}>
@@ -92,15 +95,12 @@ const PetViewCard = ({modalInfo}) => {
                 </div>
             </div>
             <br/>
-            <div className="d-flex justify-content-between">
-                <button className="btn btn-warning" onClick={()=>rowEvent("editPetModal")}>Edit</button>
-                <button  className="btn btn-danger" value="Delete" onClick={(e) => deletePetRecord(modalInfo.petsId, modalInfo.storeInfo.storeId)}>Delete</button>
+            <div className="d-flex justify-content-center">
+                <button className="btn btn-success" onClick={()=>rowEvent("buyPet")}>Buy</button>
             </div>
             
         </div>
     </div>
-        }
-        
     </div>
 
 }
