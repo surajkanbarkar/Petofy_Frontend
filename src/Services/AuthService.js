@@ -15,7 +15,6 @@ class AuthService{
         return axios.put(FORGOTPASS_URL, formData);
     }
     updateUserProfileService(formData){
-        debugger
         const UPDATE_PROFILE_URL = URL + "/auth/update_profile";
         return axios.put(UPDATE_PROFILE_URL, formData, {headers: {"Content-Type": "application/json"}})
     }

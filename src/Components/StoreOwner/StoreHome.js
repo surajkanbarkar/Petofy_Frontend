@@ -13,6 +13,7 @@ const StoreHome = () => {
 
     const [anchor, setAnchor] = useState(false);
     const [pets, setPets] = useState([]);
+    
     const [showAddPetModal, setsShowAddPetModal] = useState(false)
     const [show, setShow] = useState(false)
     const handleShow = ()=> setShow(true)
@@ -93,7 +94,7 @@ const StoreHome = () => {
                                         <div className="row">
                                             <div className='col-md-4 text-center'>
                                                 <a href="" className="carbon-img" target="_blank" rel="noopener sponsored">
-                                                    <img src="https://cdn4.buysellads.net/uu/1/127419/1670532337-Stock2.jpg" alt="ads via Carbon" border="0" height="100" width="130" style={{maxWidth: '130px'}}/>
+                                                    <img src="https://dogtime.com/assets/uploads/gallery/beagle-dog-breed-pictures/1-runforward.jpg" alt="ads via Carbon" border="0" height="100" width="130" style={{maxWidth: '130px'}}/>
                                                 </a>
                                             </div>
                                             <div className='col-md-8'>

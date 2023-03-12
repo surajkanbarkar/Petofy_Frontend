@@ -49,7 +49,7 @@ const ForgotPassword = () => {
                     </Snackbar>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="card-body mb-2">
-                            <h5 className="card-title mb-4">Login</h5>
+                            <h5 className="card-title mb-4">Forgot Password</h5>
                             <input {...register('emailId', { required: true })} className='form-control mb-3' type={'email'} placeholder='Email'/>
                             <input {...register('password', { required: true })} className='form-control mb-4' type={'password'}  placeholder='Password'/>
                             <input {...register('confirmPass', { required: true })} className='form-control mb-4' type={'password'}  placeholder='Confirm Password'/>

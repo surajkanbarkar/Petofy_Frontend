@@ -17,7 +17,6 @@ class PetService{
     }
     updatePet(formData){
         const UPDATE_PET_URL = URL + "/pets/update";
-        debugger
         return axios.put(UPDATE_PET_URL, formData)
     }
     getPet(petId){

@@ -2,7 +2,7 @@ import React from "react";
 
 const CustomerOrdersTableRow = ({order}) => {
     console.log(order);
-    debugger;
+
     return (
         <>
             <tr>
