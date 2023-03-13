@@ -6,6 +6,8 @@ import React from "react";
 import PSPDFKit from "../../Common/PSPDFKit";
 
 const NocFile = ({order, show}) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(order)
     const printDocument = () => {
         const input = document.getElementById('divToPrint');
         html2canvas(input)
@@ -61,7 +63,7 @@ const NocFile = ({order, show}) => {
                             <p style={{fontWeight: "bold", fontSize: '15px'}}>Applicant Name</p>
                         </div>
                         <div className="col">
-                            <p style={{fontWeight: "bold", fontSize: '15px'}}>Suraj</p>
+                            <p style={{fontWeight: "bold", fontSize: '15px'}}>{user.firstName +" "+user.lastName}</p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +71,6 @@ const NocFile = ({order, show}) => {
                         <thead>
                             <tr>
                                 <th>SR.NO.</th>
-                                <th>Dog breed</th>
                                 <th>Particulars</th>
                                 <th>Details</th>
                             </tr>
