@@ -2,6 +2,7 @@ import { Alert, Snackbar } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PetOrderService from '../../Services/PetOrderService';
+import NocFile from '../Gov/NocFile';
 import CustomerHomeComponent from './CustomerHomeComponent';
 import CustomerOrdersTableRow from './CustomerOrdersTableRow';
 
@@ -34,6 +35,7 @@ const CustomerOrdersTable = () =>{
     }
     return <>
         <CustomerHomeComponent />
+        {/* <NocFile /> */}
             <Snackbar open={open} autoHideDuration={1000} onClose={() => setOpen(false)}>
                 <Alert severity={alertSeverity} sx={{ width: '100%' }}>
                     {alert}
@@ -48,12 +50,14 @@ const CustomerOrdersTable = () =>{
                     <thead>
                         <tr>
                             <th>Order Id</th>
+                            <th>Dog breed</th>
                             <th>Order status</th>
                             <th>Order date</th>
                             <th>Expected delivery date</th>
                             <th>Pet breed</th>
                             <th>Price</th>
                             <th>Payment status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
