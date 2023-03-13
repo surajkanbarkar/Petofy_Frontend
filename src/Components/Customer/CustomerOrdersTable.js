@@ -54,7 +54,6 @@ const CustomerOrdersTable = () =>{
                             <th>Order status</th>
                             <th>Order date</th>
                             <th>Expected delivery date</th>
-                            <th>Pet breed</th>
                             <th>Price</th>
                             <th>Payment status</th>
                             <th>Action</th>

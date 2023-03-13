@@ -36,12 +36,12 @@ const StoreProfile = () => {
                 setStore(result.data)
                 setStoreId(result.data.storeId)
                 localStorage.setItem("storeId", result.data.storeId)
-                setTimeout(function(){
+                // setTimeout(function(){
                     document.getElementsByName("storeName")[0].value  = result.data.storeName;
                     document.getElementsByName("storeAddress")[0].value  = result.data.storeAddress;
                     document.getElementsByName("storeContact")[0].value  = result.data.storeContact;
                     document.getElementsByName("storeType")[0].value  = result.data.storeType;    
-                }.bind(this), 1000)
+                // }.bind(this), 1000)
                 
                 
             }else{

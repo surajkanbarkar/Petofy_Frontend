@@ -64,19 +64,6 @@ const CustomerHome = () => {
                     </Alert>
                 </Snackbar>
             {/* {show ? <AddPetModal show={show} handleClose={handleClose} userId={user.userId} storeId={storeId}/> : null} */}
-            <div className="" id="navbarNav">
-                <ul className="nav justify-content-end">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/employees">Dogs</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/targetedOffers">Aquariums</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/targetedOffers">Birds</Link>
-                    </li>
-                </ul>
-            </div>
             <div className='container'>
             <div className='d-flex justify-content-between'>
                     <h2 className='header-text mt-4'>All available pets</h2>

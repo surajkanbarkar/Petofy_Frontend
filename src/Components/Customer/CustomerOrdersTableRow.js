@@ -27,15 +27,16 @@ const CustomerOrdersTableRow = ({order}) => {
         
             <tr>
                 <td>{order.petsOrderId}</td>
+                <td>{order.pets.petBreed}</td>
                 <td>{order.orderStatus === true ? 'true': 'false'}</td>
                 <td>{order.orderInsertedDatetime}</td>
                 <td>{order.expectedOrderDeliveryDatetime}</td>
-                <td>{order.pets.petBreed}</td>
+                
                 <td>{order.pets.petPrice}</td>
                 <td>Paid</td>
                 <td><NocFile order={order} show={show}/></td>
                 <td>
-                    <button className="btn btn-sm btn-info"  onClick={printDocument}>Apply NOC</button>
+                    <button className="btn btn-sm btn-info"  onClick={printDocument}>View NOC</button>
                 </td>
             </tr>
         </>

@@ -23,7 +23,7 @@ const NocFile = ({order, show}) => {
       return <div>
         {show ? 
         <div>
-            <button onClick={printDocument} className="btn btn-info">Print</button>
+            <button onClick={printDocument} className="btn btn-info">Download</button>
             <div id="divToPrint" className="mt4" style={{
                 backgroundColor: '#f5f5f5',
                 width: '210mm',
